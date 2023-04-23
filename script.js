@@ -1,5 +1,23 @@
 const input = document.getElementById('text');
-const copiar = document.getElementById('clipboard')
+const copiar = document.getElementById('clipboard');
+const darkMode = document.getElementById('dark');
+
+darkMode.addEventListener("click", () => {
+    const html = document.querySelector("html");
+    const sol = document.querySelector(".bi-moon-stars-fill");
+    const lua = document.querySelector(".bi-brightness-high-fill")
+
+    if(html.getAttribute("data-bs-theme") == "ligth") {
+        html.setAttribute('data-bs-theme', 'dark');
+        sol.toggleAttribute("hidden");
+        lua.toggleAttribute("hidden");
+
+    } else {
+        html.setAttribute('data-bs-theme', 'ligth');
+        sol.toggleAttribute("hidden");
+        lua.toggleAttribute("hidden");
+    }
+})
 
 input.addEventListener("input", () => {
     const rps = document.getElementById('text').value.trim();
