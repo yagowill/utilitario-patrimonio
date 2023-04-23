@@ -26,19 +26,18 @@ input.addEventListener("input", () => {
 
     if(rps != "") {
         let arrRps = rps.split(" ");
-        textArea.innerHTML = Array(arrRps);
-        console.log(typeof(arrRps))
-        let qtdRp = rps.split(" ").length
         let rpsUniq = new Set(arrRps)
-        let qtdUniqQtd = rpsUniq.size
+        textArea.innerHTML = Array(...rpsUniq);
+        let qtdRp = rps.split(" ").length;
+        let qtdUniqQtd = rpsUniq.size;
         let duplicadosQtd = qtdRp - qtdUniqQtd;
         let duplicados = arrRps;
         rpsUniq.forEach(el => duplicados.splice(duplicados.indexOf(el), 1));
 
-        infos.innerHTML = `<strong>Quantidade únicos: <span style="color:green;">${qtdUniqQtd}</span></strong`;
+        infos.innerHTML = `<strong>Quantidade de rps únicas: <span style="color:green;">${qtdUniqQtd}</span></strong`;
         if(duplicadosQtd > 0) {
-            infos.innerHTML += `<strong><br><span style="color:red;">${duplicadosQtd}</span> duplicados encontrados<br>
-            Patrimônios duplicados: <span style="color:red;">${duplicados}</span></strong>`;
+            infos.innerHTML += `<strong><br>Quantidade de rps duplicados: <span style="color:red;">${duplicadosQtd}</span><br>
+            Rps duplicados: <span style="color:red;">${duplicados}</span></strong>`;
         }
     } else {infos.innerHTML = ""; textArea.innerText = "";};
 }, false);
