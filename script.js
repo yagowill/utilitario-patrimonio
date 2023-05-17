@@ -1,6 +1,8 @@
 const input = document.getElementById('text');
 const copiar = document.getElementById('clipboard');
 const darkMode = document.getElementById('dark');
+const infos = document.getElementById('info');
+const textArea = document.getElementById('floatingTextarea2');
 
 darkMode.addEventListener("click", () => {
     const html = document.querySelector("html");
@@ -21,8 +23,6 @@ darkMode.addEventListener("click", () => {
 
 input.addEventListener("input", () => {
     const rps = document.getElementById('text').value.trim();
-    const textArea = document.getElementById('floatingTextarea2');
-    const infos = document.getElementById('info');
 
     if(rps != "") {
         let arrRps = rps.split(" ");
@@ -43,7 +43,9 @@ input.addEventListener("input", () => {
 }, false);
 
 copiar.addEventListener("click", () => {
-    const textArea = document.getElementById('floatingTextarea2').value;
-    navigator.clipboard.writeText(textArea).then();
+    navigator.clipboard.writeText(textArea.value).then();
+    input.value = "";
+    textArea.innerHTML = "";
+    infos.innerHTML = "";
     
 })
