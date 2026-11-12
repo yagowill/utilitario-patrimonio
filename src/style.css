@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+  --color-brand-50: #eef5fb;
+  --color-brand-100: #d9e8f5;
+  --color-brand-200: #b8d4ea;
+  --color-brand-300: #8ab8dc;
+  --color-brand-400: #5597c8;
+  --color-brand-500: #3379ae;
+  --color-brand-600: #245f92;
+  --color-brand-700: #1d4c76;
+  --color-brand-800: #183f62;
+  --color-brand-900: #0f2a4a;
+  --color-brand-950: #081a2f;
+
+  --color-gold-300: #e7cc74;
+  --color-gold-400: #d4af37;
+  --color-gold-500: #bf9a28;
+  --color-gold-600: #9a7a1f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-800);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .dark body {
+    background-color: var(--color-slate-950);
+    color: var(--color-slate-100);
+  }
+
+  ::selection {
+    background-color: var(--color-brand-200);
+    color: var(--color-brand-950);
+  }
+
+  .dark ::selection {
+    background-color: var(--color-brand-700);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .institutional-grid {
+    background-image:
+      linear-gradient(to right, rgb(15 42 74 / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(15 42 74 / 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .dark .institutional-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.025) 1px, transparent 1px);
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-slate-300) transparent;
+  }
+
+  .dark .scrollbar-thin {
+    scrollbar-color: var(--color-slate-700) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background-color: var(--color-slate-300);
+  }
+
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-slate-700);
+  }
+}
