@@ -66,8 +66,7 @@ function createSubtitleParagraph(termNumber: string): Paragraph {
     alignment: AlignmentType.RIGHT,
     spacing: { after: 120 },
     children: [
-      createRun('TERMO DE BAIXA N°: ', { bold: true }),
-      createRun(termNumber || '—'),
+      createRun(`TERMO DE BAIXA N°: ${termNumber || '—'}`, { bold: true }),
     ],
   })
 }
@@ -105,8 +104,7 @@ function createAgencyBox(): Table {
               new Paragraph({
                 alignment: AlignmentType.LEFT,
                 children: [
-                  createRun('ÓRGÃO: ', { bold: true }),
-                  createRun('POLÍCIA CIVIL DO ESTADO DO PARÁ'),
+                  createRun('ÓRGÃO: POLÍCIA CIVIL DO ESTADO DO PARÁ'),
                 ],
               }),
             ],
@@ -259,13 +257,13 @@ function createSignatureTable(mergeResult: MergeResult): Table {
               new Paragraph({
                 alignment: AlignmentType.LEFT,
                 spacing: { after: 40 },
-                children: [createRun('UNIDADE DE PATRIMÔNIO', { bold: true })],
+                children: [createRun('UNIDADE DE PATRIMÔNIO')],
               }),
               new Paragraph({
                 alignment: AlignmentType.LEFT,
                 spacing: { after: 40 },
                 children: [
-                  createRun('DATA: ', { bold: true }),
+                  createRun('DATA: '),
                   createRun(date),
                 ],
               }),
@@ -277,7 +275,7 @@ function createSignatureTable(mergeResult: MergeResult): Table {
                 alignment: AlignmentType.LEFT,
                 spacing: { after: 40 },
                 children: [
-                  createRun('NOME: ', { bold: true }),
+                  createRun('NOME: '),
                   createRun(unitChiefName),
                 ],
               }),
@@ -305,13 +303,13 @@ function createSignatureTable(mergeResult: MergeResult): Table {
               new Paragraph({
                 alignment: AlignmentType.LEFT,
                 spacing: { after: 40 },
-                children: [createRun('TITULAR DO ÓRGÃO', { bold: true })],
+                children: [createRun('TITULAR DO ÓRGÃO')],
               }),
               new Paragraph({
                 alignment: AlignmentType.LEFT,
                 spacing: { after: 40 },
                 children: [
-                  createRun('DATA: ', { bold: true }),
+                  createRun('DATA: '),
                   createRun(date),
                 ],
               }),
@@ -322,7 +320,7 @@ function createSignatureTable(mergeResult: MergeResult): Table {
               new Paragraph({
                 alignment: AlignmentType.LEFT,
                 children: [
-                  createRun('NOME: ', { bold: true }),
+                  createRun('NOME: '),
                   createRun(agencyHeadName),
                 ],
               }),
