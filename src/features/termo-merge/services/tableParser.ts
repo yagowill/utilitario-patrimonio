@@ -168,7 +168,11 @@ function normalizeReason(value: string): string {
 }
 
 function normalizeSituation(value: string): string {
-  return normalizeWhitespace(value).replace(/[.;,]+$/g, '').toUpperCase()
+  return normalizeWhitespace(value)
+    .replace(/\bSITUA[CÇ][AÃ]O\s+DO\s+BEM\b/gi, '')
+    .replace(/[.;,]+$/g, '')
+    .trim()
+    .toUpperCase()
 }
 
 function normalizeRecommendation(value: string): string {
